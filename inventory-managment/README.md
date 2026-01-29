@@ -1,32 +1,58 @@
-# Inventory Management System
+    # Inventory Management System 
 
-This project implements a basic inventory management system using Python.
+This project implements a console-based inventory management system developed in Python as part of my academic training in Computer Science.
+
+It simulates a real-world inventory control process, including product registration, stock management across multiple warehouses, transaction history, and reporting.
+
+---
 
 ## Problem description
-The program is designed to manage a collection of products, allowing basic operations such as adding, updating, and displaying inventory items.
 
-It simulates a simplified inventory control process using fundamental programming constructs.
+The program is designed to manage a collection of products and track inventory movements in different storage locations.  
+It allows users to register products, manage stock entries and exits, consult inventory status, and generate reports.
+
+The system persists data using JSON files, enabling continuity between sessions.
+
+---
 
 ## Features
-- Add products to inventory
-- Update product quantities
-- Display inventory information
-- Simple menu-driven interaction
+
+- Product registration with supplier information
+- Inventory management across multiple warehouses
+- Stock entry and withdrawal with validation
+- Product search by code
+- Transaction history (entries and exits)
+- Inventory summary reports
+- Persistent data storage using JSON files
+- Menu-driven console interaction
+
+---
 
 ## Approach
-The solution uses:
-- Data structures to store inventory information
-- Loops and conditional logic for control flow
-- Functions to organize operations
+
+The solution is structured using modular programming principles.  
+Core functionalities are separated into modules responsible for inventory management and reporting.
+
+The system uses Python data structures combined with file handling to simulate a simple but functional inventory control workflow.
+
+---
 
 ## Concepts applied
-- Basic data structures
-- Loops and conditionals
-- Functions
+
+- Modular programming
+- Dictionaries and lists
+- File handling with JSON
+- Input validation
+- Control flow (loops and conditionals)
+- Separation of concerns
 - Structured problem solving
 
+---
+
 ## Possible improvements
-- Persistent storage (files or database)
-- Product removal functionality
-- Improved data validation
-- More robust data structures
+
+- Refactor the system using object-oriented programming
+- Improve error handling and input validation
+- Add unit tests
+- Extend reporting capabilities
+- Integrate a database instead of JSON storage
