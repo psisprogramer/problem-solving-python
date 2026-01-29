@@ -1,5 +1,4 @@
-# problem-solving-python
-# Problem Solving with Python
+# Problem Solving with Python⭐
 
 This repository contains Python programs focused on fundamental programming concepts and structured problem solving.  
 The projects address practical scenarios and were developed as part of my academic training in Computer Science.
