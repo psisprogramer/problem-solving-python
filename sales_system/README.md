@@ -22,4 +22,56 @@ The application follows a **modular design**, separating responsibilities across
 ---
 
 ## 🧱 Project Structure
+sales-system/
+│
+├── main.py
+│ # Entry point of the application (menu and user interaction)
+│
+├── modulos/
+│ ├── recursos.py
+│ │ # Product management, sales processing, JSON persistence
+│ │
+│ └── reportes.py
+│ # Sales reports and aggregated summaries
+│
+├── data/
+│ ├── products.json
+│ │ # Persistent product inventory
+│ │
+│ └── sales.json
+│ # Persistent sales records
+│
+└── README.md
 
+
+---
+
+## ⚙️ Features
+
+- Menu-driven console interface
+- Product listing and search
+- Sales processing with stock validation
+- Persistent storage using JSON files
+- Automatic inventory updates after each sale
+- Sales report with total revenue calculation
+
+---
+
+## 🧠 Concepts Applied
+
+- Modular programming
+- File handling (JSON persistence)
+- Data structures (dictionaries and lists)
+- Input validation and error handling
+- Separation of concerns
+- Structured problem-solving
+
+---
+
+## 🧪 Technologies Used
+
+- Python 3
+- Standard Python libraries:
+  - `json`
+  - `os`
+  - `datetime`
