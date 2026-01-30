@@ -45,3 +45,5 @@ def reporte():
         total_productos += total_bodega
     
     print(f"\nTotal general en inventario: {total_productos}")
+    
+    

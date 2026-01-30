@@ -25,5 +25,23 @@
             "Centro": 0,
             "Oriente": 0
         }
+    },
+    "789": {
+        "name": "azucar",
+        "prove": "azucar manuelita",
+        "bodegas": {
+            "Norte": 0,
+            "Centro": 0,
+            "Oriente": 0
+        }
+    },
+    "741": {
+        "name": "papa",
+        "prove": "mayonesa",
+        "bodegas": {
+            "Norte": 0,
+            "Centro": 0,
+            "Oriente": 0
+        }
     }
 }

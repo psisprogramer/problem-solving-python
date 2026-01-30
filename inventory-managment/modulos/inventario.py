@@ -9,7 +9,7 @@ import json
 from datetime import datetime
 
 InventarioGeneral = {}
-Registros = []
+Registros = [] 
 
 def cargar_datos():
     global InventarioGeneral, Registros
@@ -57,6 +57,7 @@ def crear_productos():
         switch = input("¿Desea ingresar otro producto? (si/no): ").lower()
         if switch != 'si':
             break
+    input("\nPresione Enter para volver al menú principal...")
 
 def ingresar_productos():
     code = input("Código del producto: ") # Entrada
@@ -104,6 +105,7 @@ def ingresar_productos():
             print("Bodega no válida.")
     else:
         print("Producto no encontrado.")
+    input("\n[Presione Enter para continuar...]")
 
 def sacar_productos():
     code = input("Código del producto: ")
@@ -152,6 +154,7 @@ def sacar_productos():
             print("Bodega no válida.")
     else:
         print(f"Producto con código {code} no fue encontrado.")
+    input("\n[Presione Enter para continuar...]")
 
 def buscar_productos():
     code = input("Código del producto: ") 
@@ -165,3 +168,32 @@ def buscar_productos():
         print("===================================================================")
     else:
         print(f"Producto con código {code} no fue encontrado.")
+    input("\n[Presione Enter para continuar...]")
+
+def eliminar_producto():
+    code = input("Ingrese el código del producto que desea eliminar: ")
+    
+    if code in InventarioGeneral:
+        nombre = InventarioGeneral[code]['name']
+        
+        # Confirmación de seguridad
+        confirmar = input(f"¿Está seguro de eliminar '{nombre}'? (si/no): ").lower()
+        if confirmar == 'si':
+            # Eliminamos el producto del diccionario
+            del InventarioGeneral[code]
+            
+            # Registramos en el historial
+            Registros.append({
+                'codigo': code, 
+                'tipo': 'ELIM', 
+                'cantidad': 0, 
+                'bodega': 'N/A', 
+                'descripcion': f'Producto {nombre} eliminado del sistema', 
+                'fecha': datetime.now().isoformat()
+            })
+            
+            guardar_datos()
+            print(f"✔ El producto '{nombre}' ha sido eliminado correctamente.")
+    else:
+        print("⚠ Error: Producto no encontrado.")
+    input("\n[Presione Enter para continuar...]")
