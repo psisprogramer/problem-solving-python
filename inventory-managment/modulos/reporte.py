@@ -1,10 +1,8 @@
-# Importamos las rutas y los datos actuales desde inventario.py
 from modulos.inventario import Registros, InventarioGeneral, INVENTARIO_PATH, REGISTROS_PATH
 from datetime import datetime
 import json
 
 def mostrar_historial():
-    # Usamos Registros directamente si ya tiene datos
     if not Registros:
         print("No hay historial disponible o archivos no encontrados.")
         return
