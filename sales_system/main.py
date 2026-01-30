@@ -1,5 +1,5 @@
 import os
-from modulos.recursos import show_products, find_product
+from modulos.recursos import show_products, find_product, process_sale
 
 def limpiar_pantalla():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -12,8 +12,9 @@ def menu():
         print("\nBienvenido a SALES SYSTEM  ©︎ ")
         print("------          Menú principal:          ------")
         print("-1. Mostrar lista de productos.")
-        print("-2. Hacer una venta.")
-        print("-3. Generar reporte de ventas.")
+        print("-2. Buscar producto.")
+        print("-3. Hacer una venta.")
+        print("-4. Generar reporte de ventas.")
         print("-0. Salir")
         print("----------------------------------------------") 
         print("===============================================")  
@@ -23,6 +24,8 @@ def menu():
         elif opcion == "2":
             find_product()
         elif opcion == "3":
+            process_sale()
+        elif opcion == "4":
             #reporte()
              print("algo")
         elif opcion == "0":

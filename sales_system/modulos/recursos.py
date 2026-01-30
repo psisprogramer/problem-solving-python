@@ -1,7 +1,6 @@
 from datetime import datetime
 import os
 
-
 products = {
     1: {"name": "Laptop", "price": 2500, "stock": 5},
     2: {"name": "Mouse", "price": 50, "stock": 20},
@@ -39,5 +38,44 @@ def find_product():
 
     input("\n[Presione Enter para continuar...]")
 
-def process_sale(products):
-    pass
+def process_sale():
+        print("\n================ SISTEMA DE VENTAS =================")
+
+        for id, data in products.items():
+            print(f"{id}. {data['name']} - Precio: {data['price']} - Stock: {data['stock']}")
+
+        try:
+            product_id = int(input("\nIngrese el ID del producto: "))
+
+            if product_id not in products:
+                print("Producto no válido.")
+                input("\nPresione Enter para continuar...")
+                return
+
+            cantidad = int(input("Ingrese la cantidad a vender: "))
+
+            if cantidad <= 0:
+                print("La cantidad debe ser mayor a 0.")
+                input("\nPresione Enter para continuar...")
+                return
+
+            if cantidad > products[product_id]["stock"]:
+                print("No hay suficiente stock disponible.")
+                input("\nPresione Enter para continuar...")
+                return
+
+            total = cantidad * products[product_id]["price"]
+            products[product_id]["stock"] -= cantidad
+
+            print("\n===================================================")
+            print("--------------- Venta realizada ✔︎ ----------------")
+            print(f"Fecha: {datetime.now()}")
+            print(f"Producto: {products[product_id]['name']}")
+            print(f"Cantidad vendida: {cantidad}")
+            print(f"Total a pagar: ${total}")
+            print("===================================================")
+
+        except ValueError:
+            print("Entrada inválida. Debe ingresar números.")
+
+        input("\nPresione Enter para volver al menú principal...")
