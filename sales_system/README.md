@@ -1,27 +1,25 @@
-# ATM System
+# Sales System – Python Console Application
 
-This program simulates the basic functionality of an ATM system using Python.
+This project implements a **console-based sales management system** developed in Python.  
+It simulates the core logic of a small point-of-sale system, focusing on **clean structure, data persistence, and logical flow**, rather than graphical interfaces.
 
-## Problem description
-The objective of this program is to model a simple ATM that allows users to:
-- Check account balance
-- Deposit money
-- Withdraw money
+The project is part of my academic and practical training in **Computer Science and programming fundamentals**.
 
-## Approach
-The solution is implemented using:
-- Conditional statements
-- Loops
-- Functions to separate responsibilities
-- Basic input validation
+---
 
-## Concepts applied
-- Control flow
-- Functions
-- User input handling
-- Basic state management
+## 📌 Project Description
 
-## Possible improvements
-- Persistent data storage
-- Improved user interface
-- Enhanced input validation
+The system allows users to:
+
+- Manage a list of products
+- Search products by name
+- Register sales transactions
+- Persist inventory and sales data using JSON files
+- Generate basic sales reports
+
+The application follows a **modular design**, separating responsibilities across different files to improve readability, maintainability, and scalability.
+
+---
+
+## 🧱 Project Structure
+

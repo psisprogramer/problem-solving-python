@@ -1,11 +1,24 @@
 from datetime import datetime
 import os
+import json
 
-products = {
-    1: {"name": "Laptop", "price": 2500, "stock": 5},
-    2: {"name": "Mouse", "price": 50, "stock": 20},
-    3: {"name": "Keyboard", "price": 120, "stock": 10}
-}
+DATA_PATH = "data"
+PRODUCTS_FILE = os.path.join(DATA_PATH, "products.json")
+SALES_FILE = os.path.join(DATA_PATH, "sales.json")
+
+def load_json(path, default):
+    if not os.path.exists(path):
+        return default
+    with open(path, "r", encoding="utf-8") as file:
+        return json.load(file)
+
+def save_json(path, data):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as file:
+        json.dump(data, file, indent=4)
+
+products = load_json(PRODUCTS_FILE, {})
+sales = load_json(SALES_FILE, [])
 
 def show_products():
     for name, data in products.items():
@@ -39,43 +52,44 @@ def find_product():
     input("\n[Presione Enter para continuar...]")
 
 def process_sale():
-        print("\n================ SISTEMA DE VENTAS =================")
+    for id, data in products.items():
+        print(f"{id}. {data['name']} - ${data['price']} - Stock: {data['stock']}")
 
-        for id, data in products.items():
-            print(f"{id}. {data['name']} - Precio: {data['price']} - Stock: {data['stock']}")
+    try:
+        product_id = input("\nIngrese el ID del producto: ")
 
-        try:
-            product_id = int(input("\nIngrese el ID del producto: "))
+        if product_id not in products:
+            print("Producto no válido.")
+            return
 
-            if product_id not in products:
-                print("Producto no válido.")
-                input("\nPresione Enter para continuar...")
-                return
+        quantity = int(input("Ingrese la cantidad: "))
 
-            cantidad = int(input("Ingrese la cantidad a vender: "))
+        if quantity <= 0 or quantity > products[product_id]["stock"]:
+            print("Cantidad inválida.")
+            return
 
-            if cantidad <= 0:
-                print("La cantidad debe ser mayor a 0.")
-                input("\nPresione Enter para continuar...")
-                return
+        total = quantity * products[product_id]["price"]
+        products[product_id]["stock"] -= quantity
 
-            if cantidad > products[product_id]["stock"]:
-                print("No hay suficiente stock disponible.")
-                input("\nPresione Enter para continuar...")
-                return
+        sale = {
+            "date": datetime.now().isoformat(),
+            "product_id": product_id,
+            "product_name": products[product_id]["name"],
+            "quantity": quantity,
+            "unit_price": products[product_id]["price"],
+            "total": total
+        }
 
-            total = cantidad * products[product_id]["price"]
-            products[product_id]["stock"] -= cantidad
+        sales.append(sale)
 
-            print("\n===================================================")
-            print("--------------- Venta realizada ✔︎ ----------------")
-            print(f"Fecha: {datetime.now()}")
-            print(f"Producto: {products[product_id]['name']}")
-            print(f"Cantidad vendida: {cantidad}")
-            print(f"Total a pagar: ${total}")
-            print("===================================================")
+        save_json(PRODUCTS_FILE, products)
+        save_json(SALES_FILE, sales)
 
-        except ValueError:
-            print("Entrada inválida. Debe ingresar números.")
+        print("\nVenta registrada correctamente ✔︎")
 
-        input("\nPresione Enter para volver al menú principal...")
+    except ValueError:
+        print("Entrada inválida.")
+
+    input("\nPresione Enter para continuar...")
+
+

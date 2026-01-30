@@ -1,5 +1,6 @@
 import os
 from modulos.recursos import show_products, find_product, process_sale
+from modulos.reportes import sales_report
 
 def limpiar_pantalla():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -26,8 +27,7 @@ def menu():
         elif opcion == "3":
             process_sale()
         elif opcion == "4":
-            #reporte()
-             print("algo")
+            sales_report()
         elif opcion == "0":
             print("Guardando datos...")
             #guardar_datos()
