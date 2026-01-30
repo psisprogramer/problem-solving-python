@@ -1,0 +1,29 @@
+{
+    "22": {
+        "name": "arroz",
+        "prove": "pepito",
+        "bodegas": {
+            "Norte": 0,
+            "Centro": 0,
+            "Oriente": 0
+        }
+    },
+    "123": {
+        "name": "mm",
+        "prove": "k",
+        "bodegas": {
+            "Norte": 0,
+            "Centro": 0,
+            "Oriente": 0
+        }
+    },
+    "123456": {
+        "name": "cabeza",
+        "prove": "caro",
+        "bodegas": {
+            "Norte": 55,
+            "Centro": 0,
+            "Oriente": 0
+        }
+    }
+}

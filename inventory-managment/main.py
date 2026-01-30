@@ -1,21 +1,19 @@
 from modulos.inventario import (
     crear_productos, ingresar_productos, 
-    sacar_productos, buscar_productos
+    sacar_productos, buscar_productos,
+    guardar_datos, cargar_datos
 )
 from modulos.reporte import mostrar_historial, reporte
-from modulos.inventario import guardar_datos, cargar_datos
-#Import rutas de modulos 
 
-
-#Función de menú
+# Función de menú
 def menu():
     while True:
         print("\n================================================")
         print("-----------------------------------------------")
-        print("\nBienvenido a ACME'S GESTIÓN DE INVENTARIOS  ")
+        print("\nBienvenido a ACME'S GESTIÓN DE INVENTARIOS ©︎ ")
         print("------          Menú principal:          ------")
         print("-1. Registrar productos.")
-        print("-2. Ingresar productos")
+        print("-2. Ingresar productos.")
         print("-3. Retirar productos del inventario.")
         print("-4. Buscar productos en inventario.")
         print("-5. Historial.")
@@ -23,7 +21,9 @@ def menu():
         print("-0. Salir")
         print("----------------------------------------------") 
         print("===============================================")  
-        opcion = input("Ingrese una opción:")
+        
+        opcion = input("Ingrese una opción: ")
+        
         if opcion == "1":
             crear_productos()
         elif opcion == "2":
@@ -38,7 +38,7 @@ def menu():
             reporte()
         elif opcion == "0":
             print("Guardando datos...")
-            guardar_datos() # guardar los datos en .json antes de salir del programar
+            guardar_datos() # <--- IMPORTANTE: Asegura la persistencia al salir
             print("Gracias por usar nuestros servicios.")
             print("Saliendo del programa...")
             break
@@ -46,5 +46,5 @@ def menu():
             print("Opción no válida.")
 
 if __name__ == "__main__":
-    cargar_datos()
+    cargar_datos() 
     menu()

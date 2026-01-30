@@ -1,0 +1,10 @@
+[
+    {
+        "codigo": "123456",
+        "tipo": "EN",
+        "cantidad": 55,
+        "bodega": "Norte",
+        "descripcion": "Ingreso",
+        "fecha": "2026-01-29T19:35:21.953818"
+    }
+]
