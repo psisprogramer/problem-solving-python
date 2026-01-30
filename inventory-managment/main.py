@@ -7,7 +7,6 @@ from modulos.inventario import (
 from modulos.reporte import mostrar_historial, reporte
 
 def limpiar_pantalla():
-    # 'cls' para Windows, 'clear' para Linux/Mac
     os.system('cls' if os.name == 'nt' else 'clear')
   
 def menu():
